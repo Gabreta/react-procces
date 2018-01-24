@@ -2,16 +2,19 @@
 import React, { Component } from 'react';
 
 //Asssets
-import '../../../assets/sass/layout/global.scss';
-import '../../../assets/sass/Home/home.scss';
+import '../../../assets/sass/Sesion/login.scss';
 
 class Login extends Component {
   render() {
     return (
-      <div className="App">
-        <div className="contexto-home">
-          <h1>Pagina Login</h1>
-        </div>
+      <div className="main">
+        <fieldset className="clase">
+          <div className="login-box">
+            <p className="datos1">Usuario:</p><input class="i1" type="text" name="user" />
+            <p className="datos2">Contraseña:</p><input class="i2" type="password" name="pass" />
+            <button className="boton">Ingresar</button>
+          </div>
+        </fieldset>
       </div>
     );
   }

@@ -1,0 +1,46 @@
+/* Caja */
+.clase {
+  background-color: #C333;
+  margin-right: 30%;
+  margin-left: 30%;
+  border: 0.5px solid;
+
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+
+  .login-box {
+    display: grid;
+    grid-template-columns: [ini-start] 1fr [ini-end content-start] 3fr [content-end];
+    grid-template-rows: [usuario-start] 1fr [usuario-end contra-start] 1fr [contra-end boton-start] 1fr [boton-end];
+
+    p {
+      align-self: center;
+      grid-column: ini-start / ini-end;
+    }
+
+    .datos1 {
+      grid-row: usuario-start / usuario-end;
+    }
+
+    .datos2 {
+      grid-row: contra-start / contra-end;
+    }
+
+    .i1 {
+      grid-row: usuario-start / usuario-end;
+      grid-column: content-start / content-end;
+    }
+
+    .i2 {
+      grid-row: contra-start / contra-end;
+      grid-column: content-start / content-end;
+    }
+
+    .boton {
+      grid-row: boton-start / boton-end;
+      grid-column: ini-start / content-end;
+      align-self: center;
+    }
+  }
+}

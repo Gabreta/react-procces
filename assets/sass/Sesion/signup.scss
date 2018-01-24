@@ -1,0 +1,22 @@
+/* Caja */
+.clase {
+  background-color: #C333;
+  margin-right: 30%;
+  margin-left: 30%;
+  border: 0.5px solid;
+
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+
+  .register-box {
+    display: grid;
+    grid-template-columns: [ini-start] 1fr [ini-end content-start] 3fr [content-end];
+
+    .boton {
+      grid-column: ini-start / content-end;
+      align-self: center;
+      margin-top: 10px;
+    }
+  }
+}
