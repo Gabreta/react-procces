@@ -1,0 +1,40 @@
+header
+{
+  display: grid;
+  padding-left: 2%;
+  padding-right: 2%;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 12%;
+  background-color: #32a1d5;
+
+  nav
+  {
+    display: grid;
+    padding-left: 0px;
+    justify-content: end;
+
+    ul
+    {
+      list-style-type: none;
+      display: inline-grid;
+      grid-auto-flow: column;
+      grid: column 1fr / auto;
+      grid-column-gap: 20px;
+
+      li
+      {
+        a
+        {
+          text-decoration: none;
+          color:   #154360;
+        }
+
+        a:hover
+        {
+          text-decoration: none;
+          color:   #cb3a29;
+        }
+      }
+    }
+  }
+}
