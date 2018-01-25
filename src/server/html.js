@@ -1,3 +1,4 @@
+
 export default function html(options) {
   const {
     app = 'main',
@@ -18,7 +19,6 @@ export default function html(options) {
       </head>
       <body>
         <div id="root">${markup}</div>
-
         <script src="/app/${app}.bundle.js"></script>
       </body>
     </html>

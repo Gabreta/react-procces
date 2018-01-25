@@ -1,7 +1,7 @@
-//Dependencies
+// Dependencies
 import React, { Component } from 'react';
 
-//Components
+// Components
 import Home from '../components/home/Home';
 
 class App extends Component {

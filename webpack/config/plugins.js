@@ -1,11 +1,11 @@
-// Dependecies
+// Dependencies
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import webpack from 'webpack';
 
-//Environment
+// Environment
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
-export default type => {
+export default () => {
   const plugins = [
     new ExtractTextPlugin({
       filename: '../../public/css/style.css'
