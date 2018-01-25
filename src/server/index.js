@@ -42,7 +42,9 @@ app.use(webpackHotServerMiddleware(compiler));
 db
   .sequelize
   .sync()
-  .then(listenServer).catch((err) => { console.log('Error:', err) });
+  .then(listenServer).catch((err) =>{
+    console.log('Error:', err);
+  });
 
 function listenServer() {
   app.listen(port, err1 => {

@@ -4,7 +4,7 @@ import Sequelize from 'sequelize'; // Manejo de la Base de datos posgresql
 import lodash from 'lodash'; //Algunas Librerias Extra
 import sequelize from '../../config/conection';
 
-let db = {};
+var db = {};
 
 fs
   .readdirSync(__dirname)
