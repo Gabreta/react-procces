@@ -9,7 +9,7 @@
   -moz-border-radius: 20px;
   border-radius: 20px;
 
-  .login-box {
+  .login_box {
     display: grid;
     grid-template-columns: [ini-start] 1fr [ini-end content-start] 3fr [content-end];
     grid-template-rows: [usuario-start] 1fr [usuario-end contra-start] 1fr [contra-end boton-start] 1fr [boton-end];
