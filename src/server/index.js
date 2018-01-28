@@ -39,16 +39,40 @@ app.use(webpackHotMiddleware(compiler.compilers.find(compiler => compiler.name =
 app.use(webpackHotServerMiddleware(compiler));
 
 //Activando servidor solo si esta integrado con la base de datos
-db
-  .sequelize
-  .sync()
-  .then(listenServer).catch((err) =>{
-    console.log('Error:', err);
-  });
+listenServer();
 
-function listenServer() {
-  app.listen(port, err1 => {
-    if (!err1) {
+function revisarConexion() {
+  return db.sequelize.authenticate()
+    .then(() => true)
+    .catch(err => false);
+}
+
+function sincronizarDB() {
+  console.log('Sincronizacion iniciada....');
+  return db.sequelize.sync({ force: true })
+    .then(() => true)
+    .catch(err => false);
+}
+
+function createUserBasic() {
+  console.log('Creacion de Usuario iniciada....');
+  return db.User.findOrCreate({
+    where:{
+      username: 'admin'
+    },
+    defaults: {
+      password: 'admin'
+    }
+  }).then(dato => true)
+    .catch(err => false);
+}
+
+async function listenServer() {
+  const conexion = await revisarConexion();
+  const sinc = await sincronizarDB();
+  const cUsuario = await createUserBasic();
+  app.listen(port, err => {
+    if (!err && conexion && sinc && cUsuario) {
       open(`http://localhost:${port}`);
     }
   });
