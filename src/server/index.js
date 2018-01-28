@@ -61,7 +61,9 @@ function createUserBasic() {
       username: 'admin'
     },
     defaults: {
-      password: 'admin'
+      password: 'admin',
+      name: 'administrador',
+      email: 'correodeadmin@correo.com'
     }
   }).then(dato => true)
     .catch(err => false);

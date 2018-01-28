@@ -3,7 +3,9 @@ import bcrypt from 'bcrypt-nodejs';
 module.exports = (sequelize, Datatypes) => {
   const User = sequelize.define('User', {
     username: {type: Datatypes.STRING, unique: true, allowNull: false, validate: {notEmpty: true}},
-    password: {type: Datatypes.STRING, allowNull: false, validate: { notEmpty: true}}
+    password: {type: Datatypes.STRING, allowNull: false, validate: { notEmpty: true}},
+    email: {type: Datatypes.STRING, unique: true, allowNull: false, validate: {notEmpty: true}},
+    name: {type: Datatypes.STRING, allowNull: false, validate: { notEmpty: true}}
   },
   {
     classMethods: {
@@ -28,7 +30,7 @@ module.exports = (sequelize, Datatypes) => {
 
   User.hook('beforeCreate', (user, option) => {
     const SALT_WORK_FACTOR = 12;
-    var salt = bcrypt.genSalt(SALT_WORK_FACTOR, (err, salt) => {
+    const salt = bcrypt.genSalt(SALT_WORK_FACTOR, (err, salt) => {
       return salt;
     });
     bcrypt.hash(user.password, salt, null, (err, hash) => {
@@ -36,7 +38,7 @@ module.exports = (sequelize, Datatypes) => {
         return next(err);
       }
       user.password = hash;
-      console.log(hash);
+      user.save();
     });
   });
 
